@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科学计算器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .calculator {
+            text-align: center;
+        }
+        input[type="text"], input[type="button"] {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>科学计算器</h2>
+        <input type="text" id="expression" placeholder="输入表达式">
+        <br>
+        <input type="button" value="计算" onclick="calculate()">
+        <input type="button" value="清除" onclick="clearInput()">
+        <br>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            var expression = document.getElementById('expression').value;
+            try {
+                var result = eval(expression);
+                document.getElementById('result').innerHTML = '结果: ' + result;
+            } catch (error) {
+                document.getElementById('result').innerHTML = '错误: ' + error.message;
+            }
+        }
+
+        function clearInput() {
+            document.getElementById('expression').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
